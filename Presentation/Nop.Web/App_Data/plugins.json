@@ -48,6 +48,10 @@
       "Version": "4.80.4"
     },
     {
+      "SystemName": "PW.SimplePayment",
+      "Version": "1.00"
+    },
+    {
       "SystemName": "Payments.AmazonPay",
       "Version": "4.80.8"
     },
@@ -92,20 +96,16 @@
       "Version": "4.80.3"
     },
     {
+      "SystemName": "Widgets.SitaDemo",
+      "Version": "4.80.3"
+    },
+    {
       "SystemName": "Widgets.Swiper",
       "Version": "4.80.1"
     },
     {
       "SystemName": "ExternalAuth.Facebook",
       "Version": "4.80.5"
-    },
-    {
-      "SystemName": "Widgets.SitaDemo",
-      "Version": "4.80.3"
-    },
-    {
-      "SystemName": "PW.SimplePayment",
-      "Version": "1.00"
     }
   ],
   "PluginNamesToUninstall": [],

@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "";
+}
+@model Nop.Plugin.PW.SimplePayment.Models.SimplePaymentInfoModel
+<table width="100%" cellspacing="2" cellpadding="1" border="0">
+    <tr>
+        <td>
+            <label asp-for="SmartCardNumber">@T("Payment.SmartCardNumber"):</label>
+        </td>
+        <td>
+            <input type="text" asp-for="SmartCardNumber" style="width:165px;" autocomplete="off" />
+            @* <span asp-validation-for="SmartCardNumber"></span> *@
+        </td>
+    </tr>
+</table>
