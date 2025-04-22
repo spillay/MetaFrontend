@@ -1,0 +1,23 @@
+@{
+    Layout = "_ConfigurePlugin";
+}
+<h1>hello suresh</h1>
+@await Html.PartialAsync("Table", new DataTablesModel
+{
+    Name = "SourceTables-Grid",
+    UrlRead = new DataUrl("GetSourceTablesSAPSystem", "SourceTablesSAPSystemPlugin", null),
+    Paging = false,
+    ColumnCollection = new List<ColumnProperty>
+    {
+        new ColumnProperty(nameof(SourceTablesSAPSystemModel.ID))
+        {
+            Title = "ID",
+            Width = "20"
+        },
+        new ColumnProperty(nameof(SourceTablesSAPSystemModel.Name))
+        {
+            Title = "Name",
+            Width = "100"
+        }
+    }
+})

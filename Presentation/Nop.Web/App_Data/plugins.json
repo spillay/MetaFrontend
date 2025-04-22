@@ -48,6 +48,10 @@
       "Version": "4.80.4"
     },
     {
+      "SystemName": "MetaDataModel",
+      "Version": "1.00"
+    },
+    {
       "SystemName": "PW.SimplePayment",
       "Version": "1.00"
     },

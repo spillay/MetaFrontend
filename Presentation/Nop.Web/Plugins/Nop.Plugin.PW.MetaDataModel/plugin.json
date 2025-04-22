@@ -1,0 +1,13 @@
+﻿{
+  "Group": "PW",
+  "FriendlyName": "Base Model for Meta Data",
+  "SystemName": "MetaDataModel",
+  "Version": "1.00",
+  "SupportedVersions": [
+    "4.80"
+  ],
+  "Author": "Suresh Pillay",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.PW.MetaDataModel.dll",
+  "Description": ""
+}

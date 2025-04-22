@@ -26,11 +26,14 @@ namespace Nop.Plugin.PW.SimplePayment.Infrastructure
         {
             if (context.AreaName == "Admin")
             {
-                viewLocations = new[] { $"/Plugins/Nop.Plugin.PW.SimplePayment/Areas/Admin/Views/{context.ControllerName}/{context.ViewName}.cshtml" }.Concat(viewLocations);
+            viewLocations = new[] { $"/Plugins/Nop.Plugin.PW.SimplePayment/Areas/Admin/Views/{context.ControllerName}/{context.ViewName}.cshtml" }.Concat(viewLocations);
             }
             else
             {
-                viewLocations = new[] { $"/Plugins/Nop.Plugin.PW.SimplePayment/Views/{context.ControllerName}/{context.ViewName}.cshtml" }.Concat(viewLocations);
+                viewLocations = new[] { 
+                        $"/Plugins/Nop.Plugin.PW.SimplePayment/Views/{context.ControllerName}/{context.ViewName}.cshtml",
+                        $"/Areas/Admin/Views/Shared/{context.ViewName}.cshtml"
+                }.Concat(viewLocations);
             }
 
             return viewLocations;
