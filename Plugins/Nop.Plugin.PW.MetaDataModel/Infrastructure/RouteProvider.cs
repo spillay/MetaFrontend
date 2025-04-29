@@ -35,6 +35,9 @@ namespace Nop.Plugin.PW.MetaDataModel.Infrastructure
               pattern: $"Admin/SourceTablesSAPSystemPlugin/ReportView",
                  defaults: new { controller = "SourceTablesSAPSystemPlugin", action = "ReportView" });
 
+            endpointRouteBuilder.MapControllerRoute(name: "GetStatistics",
+               pattern: $"Admin/SourceTablesSAPSystemPlugin/GetStatistics",
+                defaults: new { controller = "SourceTablesSAPSystemPlugin", action = "GetStatistics" });
 
         }
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Nop.Core;
+using Nop.Core.Domain.Customers;
 using Nop.Plugin.PW.MetaDataModel.Models;
 using Nop.Plugin.PW.MetaDataModel.Services;
 using Nop.Web.Framework;
@@ -8,6 +9,7 @@ using Nop.Web.Framework.Models.DataTables;
 using Nop.Web.Framework.Mvc.Filters;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,5 +74,38 @@ public  class SourceTablesSAPSystemPluginController : BasePluginController
     public IActionResult ReportView()
     {
         return View("~/Plugins/Nop.Plugin.PW.MetaDataModel/Views/ReportView.cshtml");
+    }
+
+    public virtual IActionResult GetStatistics(string period)
+    {
+        var result = new List<object>();
+
+        result.Add(new
+        {
+            date = "1",
+            value = "21"
+        });
+        result.Add(new
+        {
+            date = "2",
+            value = "15"
+        });
+        result.Add(new
+        {
+            date = "3",
+            value = "20"
+        });
+        result.Add(new
+        {
+            date = "4",
+            value = "18"
+        });
+        result.Add(new
+        {
+            date = "5",
+            value = "10"
+        });
+
+        return Json(result);
     }
 }

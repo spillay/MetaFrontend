@@ -3,7 +3,9 @@
 @{
     const string prefix = "customer-statistics";
     const string hideCardAttributeName = "Reports.HideCustomerStatisticsCard";
+    var customer = await workContext.GetCurrentCustomerAsync();
     var hideCard = await genericAttributeService.GetAttributeAsync<bool>(await workContext.GetCurrentCustomerAsync(), hideCardAttributeName);
+    var username = Context.User.Identity.Name;
 }
 
 <script src="~/lib_npm/chart.js/chart.umd.min.js"></script>
@@ -18,26 +20,17 @@
             @T("Admin.Reports.Customers.CustomerStatistics")
         </h3>
         <div class="card-tools float-right">
-            <button class="btn btn-xs btn-info btn-flat margin-r-5" @if (hideCard) {
-            <text> disabled="disabled" </text>
-                                                }
- data-chart-role="toggle-chart" data-chart-period="year">@T("Admin.Reports.Customers.CustomerStatistics.Year")</button>
-            <button class="btn btn-xs btn-info btn-flat margin-r-5" @if (hideCard) {
-            <text> disabled="disabled" </text>
-                                                }
- data-chart-role="toggle-chart" data-chart-period="month">@T("Admin.Reports.Customers.CustomerStatistics.Month")</button>
-            <button class="btn btn-xs btn-info btn-flat" @if (hideCard) {
-            <text> disabled="disabled" </text>
-                                                }
- data-chart-role="toggle-chart" data-chart-period="week">@T("Admin.Reports.Customers.CustomerStatistics.Week")</button>
+            <button class="btn btn-xs btn-info btn-flat margin-r-5" @if (hideCard) {<text> disabled="disabled" </text> } data-chart-role="toggle-chart" data-chart-period="year">@T("Admin.Reports.Customers.CustomerStatistics.Year")</button>
+            <button class="btn btn-xs btn-info btn-flat margin-r-5" @if (hideCard) {<text> disabled="disabled" </text>} data-chart-role="toggle-chart" data-chart-period="month">@T("Admin.Reports.Customers.CustomerStatistics.Month")</button>
+            <button class="btn btn-xs btn-info btn-flat" @if (hideCard) { <text> disabled="disabled" </text> } data-chart-role="toggle-chart" data-chart-period="week">@T("Admin.Reports.Customers.CustomerStatistics.Week")</button>
             <button class="btn btn-tool margin-l-10" data-card-widget="collapse">
                 @if (hideCard)
                 {
-                        <text><i class="fas fa-plus"></i></text>
+                    <text><i class="fas fa-plus"></i></text>
                 }
                 else
                 {
-                        <text><i class="fas fa-minus"></i></text>
+                    <text><i class="fas fa-minus"></i></text>
                 }
             </button>
         </div>
@@ -48,7 +41,6 @@
         </div>
     </div>
 </div>
-
 <script>
     $(function() {
         var csCurrentPeriod;
@@ -144,7 +136,7 @@
             $.ajax({
                 cache: false,
                 type: "GET",
-                url: "@Url.Action("LoadCustomerStatistics", "Customer")",
+                url: "@Url.Action("GetStatistics", "SourceTablesSAPSystemPlugin")",
                 data: {
                     period: period
                 },
@@ -181,9 +173,9 @@
 
         @if (!hideCard)
         {
-                    <text>
-                        $('#@(prefix)-card button[data-chart-role="toggle-chart"][data-chart-period="week"]').trigger('click');
-                    </text>
+                        <text>
+                            $('#@(prefix)-card button[data-chart-role="toggle-chart"][data-chart-period="week"]').trigger('click');
+                        </text>
         }
     });
 </script>
